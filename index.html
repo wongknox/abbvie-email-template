@@ -63,10 +63,11 @@
       a {
         text-decoration: none;
       }
+
       @media (prefers-color-scheme: dark) {
         .logo-bg,
         td.logo-bg {
-          background-color: #000000 !important;
+          background-color: #3a3a3a !important;
         }
         .hero-bg,
         td.hero-bg {
@@ -140,7 +141,7 @@
       }
       [data-ogsc] .logo-bg,
       [data-ogsc] td.logo-bg {
-        background-color: #000000 !important;
+        background-color: #3a3a3a !important;
       }
       [data-ogsc] .hero-bg,
       [data-ogsc] td.hero-bg {
@@ -216,11 +217,18 @@
           width: 100% !important;
           margin: 0 auto !important;
         }
+        .responsive-container {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
         .stack-column,
         .stack-column-center {
           display: block !important;
           width: 100% !important;
           max-width: 100% !important;
+          -webkit-box-sizing: border-box !important;
+          -moz-box-sizing: border-box !important;
+          box-sizing: border-box !important;
         }
         .center-on-mobile {
           margin: 0 auto !important;
@@ -240,29 +248,44 @@
         .hero-text-td {
           padding: 20px 30px !important;
         }
+        .breakthrough-story-header-td {
+          padding: 20px 25px 20px 25px !important;
+        }
         .breakthrough-story-header {
           font-size: 32px !important;
-          padding: 20px 50px 20px 20px !important;
+          word-break: normal !important;
+          hyphens: none !important;
+        }
+        .stack-column-header-text {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          -webkit-box-sizing: border-box !important;
+          -moz-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+        }
+        .stack-column-header-spacer {
+          display: none !important;
         }
         .breakthrough-story-image {
           padding-left: 0 !important;
         }
         .breakthrough-story-description {
-          padding: 5px 5px 5px 5px !important;
-          width: 100% !important;
-          max-width: 450px !important;
+          padding: 5px 25px 5px 25px !important;
           margin: 0 auto !important;
         }
+        .recent-stories-header-td {
+          padding: 20px 25px 20px 25px !important;
+        }
         .recent-stories-header {
-          padding: 20px 5px 20px 20px !important;
+          font-size: 32px !important;
         }
         .recent-stories-image {
           padding-left: 0 !important;
+          padding-bottom: 20px !important;
         }
         .recent-stories-description {
-          padding: 5px 5px 5px 5px !important;
-          width: 100% !important;
-          max-width: 450px !important;
+          padding: 5px 25px 5px 25px !important;
           margin: 0 auto !important;
         }
       }
@@ -402,11 +425,27 @@
                       font-size: 40px;
                       line-height: 48px;
                       font-weight: 700px;
-                      padding-bottom: 15px;
                     "
                   >
                     Putting People First
                   </h1>
+                  <!-- Spacer -->
+                  <table
+                    role="presentation"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="100%"
+                  >
+                    <tr>
+                      <td
+                        style="font-size: 15px; line-height: 15px"
+                        height="15"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </table>
                   <h2
                     class="hero-header-2"
                     style="
@@ -500,38 +539,28 @@
               alt="Learn more CTA button"
             >
               <tr>
-                <td
-                  style="
-                    text-align: center;
-                    border-radius: 10px;
-                    background: #061e48;
-                    color: #ffffff;
-                    padding: 15px 35px;
-                  "
-                >
+                <td style="text-align: center">
                   <!--[if mso]>
                     <v:roundrect
                       xmlns:v="urn:schemas-microsoft-com:vml"
                       xmlns:w="urn:schemas-microsoft-com:office:word"
                       href="https://www.abbvie.com/patients.html"
                       target="_blank"
-                      style="height: 48px; v-text-anchor: middle; width: 180px"
+                      style="height: 45px; v-text-anchor: middle; width: 180px"
                       arcsize="16%"
-                      strokecolor="#061E48"
+                      stroke="false"
                       fillcolor="#061E48"
                     >
                       <w:anchorlock />
                       <center
                         style="
-                          background-color: #061e48;
-                          color: #ffffff;
                           font-family: 'Open Sans', Arial, sans-serif;
                           text-decoration: none;
                           font-size: 18px;
                           font-weight: 600;
                         "
                       >
-                        LEARN MORE
+                        <font color="#ffffff">LEARN MORE</font>
                       </center>
                     </v:roundrect>
                   <![endif]-->
@@ -545,7 +574,10 @@
                       font-weight: 600;
                       text-decoration: none;
                       color: #ffffff;
-                      display: block;
+                      display: inline-block;
+                      padding: 15px 35px;
+                      background: #061e48;
+                      border-radius: 10px;
                     "
                   >
                     LEARN MORE
@@ -585,12 +617,14 @@
                   >
                     <tr>
                       <td
+                        class="breakthrough-story-header-td stack-column-header-text"
                         width="350"
                         style="
                           text-align: left;
                           vertical-align: top;
                           width: 100%;
                           max-width: 350px;
+                          padding: 20px 20px 20px 20px;
                         "
                       >
                         <h1
@@ -601,13 +635,18 @@
                             font-size: 40px;
                             line-height: 48px;
                             font-weight: 700;
-                            padding: 20px 20px 20px 20px;
                           "
                         >
                           Behind every breakthrough — a story.
                         </h1>
                       </td>
-                      <td width="150" style="width: 150px">&nbsp;</td>
+                      <td
+                        class="stack-column-header-spacer"
+                        width="150"
+                        style="width: 150px"
+                      >
+                        &nbsp;
+                      </td>
                     </tr>
                   </table>
                   <!-- Mike's Story -->
@@ -694,12 +733,28 @@
                                   font-size: 24px;
                                   font-weight: 600;
                                   line-height: 32px;
-                                  padding: 10px 0;
                                   margin: 0;
                                 "
                               >
                                 Meet Mike
                               </h3>
+                              <!-- Spacer -->
+                              <table
+                                role="presentation"
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                              >
+                                <tr>
+                                  <td
+                                    style="font-size: 10px; line-height: 10px"
+                                    height="10"
+                                  >
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                              </table>
                               <p
                                 class="mike-paragraph"
                                 style="
@@ -708,7 +763,6 @@
                                   font-size: 18px;
                                   font-weight: 400;
                                   line-height: 24px;
-                                  padding-bottom: 10px;
                                   margin: 0;
                                 "
                               >
@@ -716,6 +770,23 @@
                                 diagnosis. Real-life stories like Mike’s inspire
                                 our people-first approach to medicine.
                               </p>
+                              <!-- Spacer -->
+                              <table
+                                role="presentation"
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                              >
+                                <tr>
+                                  <td
+                                    style="font-size: 15px; line-height: 15px"
+                                    height="15"
+                                  >
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                              </table>
                               <!-- CTA button -->
                               <table
                                 align="center"
@@ -727,15 +798,7 @@
                                 alt="Watch now CTA button"
                               >
                                 <tr>
-                                  <td
-                                    style="
-                                      text-align: center;
-                                      border-radius: 10px;
-                                      background: #1963f8;
-                                      color: #ffffff;
-                                      padding: 15px 35px;
-                                    "
-                                  >
+                                  <td style="text-align: center">
                                     <!--[if mso]>
                                       <v:roundrect
                                         xmlns:v="urn:schemas-microsoft-com:vml"
@@ -748,14 +811,12 @@
                                           width: 180px;
                                         "
                                         arcsize="16%"
-                                        strokecolor="#1963F8"
+                                        stroke="false"
                                         fillcolor="#1963F8"
                                       >
                                         <w:anchorlock />
                                         <center
                                           style="
-                                            background-color: #1963f8;
-                                            color: #ffffff;
                                             font-family: 'Open Sans', Arial,
                                               sans-serif;
                                             text-decoration: none;
@@ -763,7 +824,7 @@
                                             font-weight: 600;
                                           "
                                         >
-                                          WATCH NOW
+                                          <font color="#ffffff">WATCH NOW</font>
                                         </center>
                                       </v:roundrect>
                                     <![endif]-->
@@ -778,7 +839,11 @@
                                         font-weight: 600;
                                         text-decoration: none;
                                         color: #ffffff;
-                                        display: block;
+                                        display: inline-block;
+                                        border-radius: 10px;
+                                        background: #1963f8;
+                                        color: #ffffff;
+                                        padding: 15px 35px;
                                       "
                                     >
                                       WATCH NOW
@@ -823,20 +888,32 @@
                     border-top-left-radius: 40px;
                   "
                 >
-                  <h2
-                    class="explore-stories-text"
-                    style="
-                      margin: 0;
-                      font-family: 'Open Sans', Arial, sans-serif;
-                      font-size: 24px;
-                      line-height: 32px;
-                      font-weight: 600;
-                      padding: 30px 50px;
-                    "
+                  <table
+                    role="presentation"
+                    cellpadding="0"
+                    cellspacing="0"
+                    border="0"
+                    width="100%"
                   >
-                    Explore more real life stories like Mike’s that inspire us
-                    to create medicines that make a difference.
-                  </h2>
+                    <tr>
+                      <td style="color: #ffffff; padding: 30px 50px">
+                        <h2
+                          class="explore-stories-text"
+                          style="
+                            margin: 0;
+                            font-family: 'Open Sans', Arial, sans-serif;
+                            font-size: 24px;
+                            line-height: 32px;
+                            font-weight: 600;
+                            color: #ffffff;
+                          "
+                        >
+                          Explore more real life stories like Mike’s that
+                          inspire us to create medicines that make a difference.
+                        </h2>
+                      </td>
+                    </tr>
+                  </table>
                   <!-- CTA button -->
                   <table
                     align="center"
@@ -848,15 +925,7 @@
                     alt="Explore stories CTA button"
                   >
                     <tr>
-                      <td
-                        style="
-                          text-align: center;
-                          border-radius: 10px;
-                          background: #061e48;
-                          color: #ffffff;
-                          padding: 15px 35px;
-                        "
-                      >
+                      <td style="text-align: center">
                         <!--[if mso]>
                           <v:roundrect
                             xmlns:v="urn:schemas-microsoft-com:vml"
@@ -869,21 +938,19 @@
                               width: 200px;
                             "
                             arcsize="16%"
-                            strokecolor="#061E48"
+                            stroke="false"
                             fillcolor="#061E48"
                           >
                             <w:anchorlock />
                             <center
                               style="
-                                background-color: #061e48;
-                                color: #ffffff;
                                 font-family: 'Open Sans', Arial, sans-serif;
                                 text-decoration: none;
                                 font-size: 18px;
                                 font-weight: 600;
                               "
                             >
-                              EXPLORE STORIES
+                              <font color="#ffffff">EXPLORE STORIES</font>
                             </center>
                           </v:roundrect>
                         <![endif]-->
@@ -897,7 +964,11 @@
                             font-weight: 600;
                             text-decoration: none;
                             color: #ffffff;
-                            display: block;
+                            display: inline-block;
+                            border-radius: 10px;
+                            background: #061e48;
+                            color: #ffffff;
+                            padding: 15px 35px;
                           "
                         >
                           EXPLORE STORIES
@@ -940,12 +1011,14 @@
                   >
                     <tr>
                       <td
+                        class="recent-stories-header-td"
                         width="350"
                         style="
                           text-align: left;
                           vertical-align: top;
                           width: 100%;
                           max-width: 350px;
+                          padding: 30px 20px 30px 20px;
                         "
                       >
                         <h1
@@ -956,7 +1029,7 @@
                             font-size: 40px;
                             line-height: 48px;
                             font-weight: 700;
-                            padding: 20px 20px 20px 20px;
+                            margin: 0;
                           "
                         >
                           Recent Stories
@@ -1045,13 +1118,29 @@
                                   font-size: 20px;
                                   font-weight: 600;
                                   line-height: 32px;
-                                  padding: 10px 0;
                                   margin: 0;
                                 "
                               >
                                 Meet Joe: Father. Husband. Golfer. Software
                                 engineer.
                               </h3>
+                              <!-- Spacer -->
+                              <table
+                                role="presentation"
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                              >
+                                <tr>
+                                  <td
+                                    style="font-size: 10px; line-height: 10px"
+                                    height="10"
+                                  >
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                              </table>
                               <p
                                 class="recent-stories-blog-paragraph"
                                 style="
@@ -1060,13 +1149,29 @@
                                   font-size: 16px;
                                   font-weight: 400;
                                   line-height: 24px;
-                                  padding-bottom: 10px;
                                   margin: 0;
                                 "
                               >
                                 A diagnosis could have taken Joe out of the
                                 game. Instead, it made him even more determined.
                               </p>
+                              <!-- Spacer -->
+                              <table
+                                role="presentation"
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                              >
+                                <tr>
+                                  <td
+                                    style="font-size: 15px; line-height: 15px"
+                                    height="15"
+                                  >
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                              </table>
                               <!-- CTA button -->
                               <table
                                 align="center"
@@ -1078,15 +1183,7 @@
                                 alt="Read more CTA button"
                               >
                                 <tr>
-                                  <td
-                                    style="
-                                      text-align: center;
-                                      border-radius: 10px;
-                                      background: #1963f8;
-                                      color: #ffffff;
-                                      padding: 15px 35px;
-                                    "
-                                  >
+                                  <td style="text-align: center">
                                     <!--[if mso]>
                                       <v:roundrect
                                         xmlns:v="urn:schemas-microsoft-com:vml"
@@ -1099,14 +1196,12 @@
                                           width: 180px;
                                         "
                                         arcsize="16%"
-                                        strokecolor="#1963F8"
+                                        stroke="false"
                                         fillcolor="#1963F8"
                                       >
                                         <w:anchorlock />
                                         <center
                                           style="
-                                            background-color: #1963f8;
-                                            color: #ffffff;
                                             font-family: 'Open Sans', Arial,
                                               sans-serif;
                                             text-decoration: none;
@@ -1114,7 +1209,7 @@
                                             font-weight: 600;
                                           "
                                         >
-                                          READ MORE
+                                          <font color="#ffffff">READ MORE</font>
                                         </center>
                                       </v:roundrect>
                                     <![endif]-->
@@ -1129,7 +1224,11 @@
                                         font-weight: 600;
                                         text-decoration: none;
                                         color: #ffffff;
-                                        display: block;
+                                        display: inline-block;
+                                        border-radius: 10px;
+                                        background: #1963f8;
+                                        color: #ffffff;
+                                        padding: 15px 35px;
                                       "
                                     >
                                       READ MORE
@@ -1230,6 +1329,23 @@
                                 5 ways AbbVie is working to deliver medicines in
                                 half the time
                               </h3>
+                              <!-- Spacer -->
+                              <table
+                                role="presentation"
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                              >
+                                <tr>
+                                  <td
+                                    style="font-size: 10px; line-height: 10px"
+                                    height="10"
+                                  >
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                              </table>
                               <p
                                 class="recent-stories-blog-paragraph"
                                 style="
@@ -1238,7 +1354,6 @@
                                   font-size: 16px;
                                   font-weight: 400;
                                   line-height: 24px;
-                                  padding-bottom: 10px;
                                   margin: 0;
                                 "
                               >
@@ -1247,6 +1362,23 @@
                                 medicines in half the time, so patients can
                                 spend more time with their loved ones.
                               </p>
+                              <!-- Spacer -->
+                              <table
+                                role="presentation"
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                              >
+                                <tr>
+                                  <td
+                                    style="font-size: 15px; line-height: 15px"
+                                    height="15"
+                                  >
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                              </table>
                               <!-- CTA button -->
                               <table
                                 align="center"
@@ -1258,15 +1390,7 @@
                                 alt="Read more CTA button"
                               >
                                 <tr>
-                                  <td
-                                    style="
-                                      text-align: center;
-                                      border-radius: 10px;
-                                      background: #1963f8;
-                                      color: #ffffff;
-                                      padding: 15px 35px;
-                                    "
-                                  >
+                                  <td style="text-align: center">
                                     <!--[if mso]>
                                       <v:roundrect
                                         xmlns:v="urn:schemas-microsoft-com:vml"
@@ -1279,14 +1403,12 @@
                                           width: 180px;
                                         "
                                         arcsize="16%"
-                                        strokecolor="#1963F8"
+                                        stroke="false"
                                         fillcolor="#1963F8"
                                       >
                                         <w:anchorlock />
                                         <center
                                           style="
-                                            background-color: #1963f8;
-                                            color: #ffffff;
                                             font-family: 'Open Sans', Arial,
                                               sans-serif;
                                             text-decoration: none;
@@ -1294,7 +1416,7 @@
                                             font-weight: 600;
                                           "
                                         >
-                                          READ MORE
+                                          <font color="#ffffff">READ MORE</font>
                                         </center>
                                       </v:roundrect>
                                     <![endif]-->
@@ -1309,7 +1431,11 @@
                                         font-weight: 600;
                                         text-decoration: none;
                                         color: #ffffff;
-                                        display: block;
+                                        display: inline-block;
+                                        border-radius: 10px;
+                                        background: #1963f8;
+                                        color: #ffffff;
+                                        padding: 15px 35px;
                                       "
                                     >
                                       READ MORE
